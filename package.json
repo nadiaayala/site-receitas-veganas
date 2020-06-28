@@ -1,0 +1,27 @@
+{
+  "name": "veg-website",
+  "version": "1.0.0",
+  "description": "Vegetarian recipes website",
+  "main": "webpack.config.js",
+  "scripts": {
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --mode development --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nadiaayala/veg-js.git"
+  },
+  "author": "Nadia Ayala",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nadiaayala/veg-js/issues"
+  },
+  "homepage": "https://github.com/nadiaayala/veg-js#readme",
+  "devDependencies": {
+    "html-webpack-plugin": "^4.3.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
