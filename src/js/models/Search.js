@@ -14,7 +14,7 @@ export default class Search {
         try{
             let res = await fetch(`https://api.spoonacular.com/recipes/search?apiKey=50f1175f9db54630b04650fece9ef2b4&number=10&query=%22${this.query}%22`);
             let data = await res.json();
-            console.log(data.results); //results
+            console.log(data.results); g
             
         }
         catch(error){
