@@ -1,6 +1,6 @@
-import { elements } from './base';
+import { elements, imgBaseUrl } from './base';
 
-const imgBaseUrl =  "https://spoonacular.com/recipeImages";
+
 
 export const getSearchInput = () => elements.searchInput.value;
 export const clearInput = () => {
@@ -12,7 +12,7 @@ const renderRecipe = recipe => {
         <li>
             <a class="results__link" href="#${recipe.id}">
                 <figure class="results__fig">
-                    <img src="${imgBaseUrl}/${recipe.image}" alt="${recipe.title}">
+                    <img src="${imgBaseUrl}${recipe.image}" alt="${recipe.title}">
                 </figure>
                 <div class="results__data">
                     <h4 class="results__name">${recipe.title}</h4>

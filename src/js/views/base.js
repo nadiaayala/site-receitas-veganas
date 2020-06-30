@@ -10,6 +10,8 @@ export const elements = {
     likesList: document.querySelector('.likes__list')
 };
 
+export const imgBaseUrl =  "https://spoonacular.com/recipeImages/";
+
 
 export const renderLoader = parent => {
     const loader = `

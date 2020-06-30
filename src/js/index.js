@@ -2,7 +2,9 @@
 
 import { elements, renderLoader, clearLoader } from './views/base';
 import Search from './models/Search';
+import Recipe from './models/Recipe';
 import * as searchView from './views/searchView';
+import * as recipeView from './views/recipeView';
 
 let state = {}
 
@@ -26,7 +28,7 @@ elements.searchResPages.addEventListener('click', e => {
 } );
 
 elements.searchResList.addEventListener('click', e => {
-    
+    controlRecipe();
 });
 
 const controlSearch = async () => {
@@ -50,6 +52,11 @@ const controlSearch = async () => {
 const controlRecipe = async () => {
     const id = window.location.hash.replace('#', '');
     if(id){
-        renderLoader(elements.recipe);
+        let recipe = new Recipe(id);
+        // renderLoader(elements.recipe);
+        await recipe.getRecipe();
+        recipeView.clearRecipe();
+        recipeView.renderRecipe(recipe);
+
     }
 };
