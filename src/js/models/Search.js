@@ -1,9 +1,9 @@
 import { get } from "http";
 
-const key = "50f1175f9db54630b04650fece9ef2b4";
 
 
-//https://api.spoonacular.com/recipes/search?apiKey=50f1175f9db54630b04650fece9ef2b4&number=100&query=%22pasta%22
+
+
 
 export default class Search {
     constructor(query){
@@ -13,7 +13,7 @@ export default class Search {
 
     async getResults(){
         try{
-            let res = await fetch(`https://api.spoonacular.com/recipes/search?apiKey=50f1175f9db54630b04650fece9ef2b4&number=100&query=%22${this.query}%22&diet="vegetarian"`);
+            let res = await fetch(`https://api.spoonacular.com/recipes/search?apiKey=637a112ab83d492cb36b701b4386c4e2&number=100&query=%22${this.query}%22&diet="vegetarian"`);
             let data = await res.json();
             console.log(data.results); 
             this.results = data.results;

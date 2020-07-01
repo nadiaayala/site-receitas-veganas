@@ -90,6 +90,9 @@ const controlLikes = () => {
     likesView.toggleLikesBtn(state.likes.getNumLikes());
 };
 
+
+// LIST CONTROLLER 
+
 const controlList = () => {
     if (!state.list)  state.list = new List();
     state.recipe.ingredients.forEach(el => {
@@ -97,7 +100,20 @@ const controlList = () => {
         listView.renderItem(item);
     });
     console.log(state.list);
-}
+};
+
+elements.shopping.addEventListener('click', e => {
+    console.log('clicked');
+    if(e.target.matches('.shopping__delete, .shopping__delete *')){
+        const li = e.target.closest('.shopping__item');
+        const id = li.dataset.itemid;
+        state.list.deleteItem(id);
+        elements.shopping.removeChild(li);
+    }
+});
+
+
+
 
 window.addEventListener('hashchange', controlRecipe);
 window.addEventListener('load', () => {

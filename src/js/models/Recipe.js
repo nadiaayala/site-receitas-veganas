@@ -6,7 +6,7 @@ export default class Recipe {
 
     async getRecipe () {
         try {
-            const res = await fetch(`https://api.spoonacular.com/recipes/${this.id}/information?includeNutrition=false&apiKey=50f1175f9db54630b04650fece9ef2b4`);
+            const res = await fetch(`https://api.spoonacular.com/recipes/${this.id}/information?includeNutrition=false&apiKey=637a112ab83d492cb36b701b4386c4e2`);
             let data = await res.json();
             let ingredients = data.extendedIngredients;
             this.image = data.image;
