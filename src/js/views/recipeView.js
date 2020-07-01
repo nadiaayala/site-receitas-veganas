@@ -58,7 +58,7 @@ export const renderRecipe = (recipe, isLiked) => {
                     <h2 class="heading-2">How to cook it</h2>
                     <p class="recipe__directions-text">
                         This recipe was carefully developed by 
-                        <span class="recipe__by">${recipe.title}</span>. Please check out directions at their website.
+                        <span class="recipe__by">${recipe.publisher}</span>. Please check out directions at their website.
                     </p>
                     <a class="btn-small recipe__btn" href="${recipe.sourceUrl}" target="_blank">
                         <span>Directions</span>

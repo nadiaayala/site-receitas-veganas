@@ -13,6 +13,8 @@ import * as listView from './views/listView';
 
 let state = {}
 
+
+//Elements event listeners 
 elements.searchForm.addEventListener('submit', e => {
     e.preventDefault();
     searchView.clearResults();
@@ -43,6 +45,8 @@ elements.searchResList.addEventListener('click', e => {
     controlRecipe();
 });
 
+
+//SEARCH CONTROLLER
 const controlSearch = async () => {
     const query = searchView.getSearchInput();
     if(query){
@@ -59,6 +63,10 @@ const controlSearch = async () => {
     }
 };
 
+
+
+
+//RECIPE CONTROLLER
 const controlRecipe = async () => {
     const id = window.location.hash.replace('#', '');
     if(id){
@@ -71,8 +79,8 @@ const controlRecipe = async () => {
     }
 };
 
+//LIKES CONTROLLER
 const controlLikes = () => {
-    
     const id = state.recipe.id;
      // User has NOT yet liked current recipe
     if(!state.likes.isLiked(id)){
@@ -92,7 +100,6 @@ const controlLikes = () => {
 
 
 // LIST CONTROLLER 
-
 const controlList = () => {
     if (!state.list)  state.list = new List();
     state.recipe.ingredients.forEach(el => {
@@ -103,7 +110,6 @@ const controlList = () => {
 };
 
 elements.shopping.addEventListener('click', e => {
-    console.log('clicked');
     if(e.target.matches('.shopping__delete, .shopping__delete *')){
         const li = e.target.closest('.shopping__item');
         const id = li.dataset.itemid;
@@ -114,7 +120,7 @@ elements.shopping.addEventListener('click', e => {
 
 
 
-
+//WINDOW EVENT LISTENERS
 window.addEventListener('hashchange', controlRecipe);
 window.addEventListener('load', () => {
     state.likes = new Likes();

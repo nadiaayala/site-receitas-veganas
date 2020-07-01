@@ -14,6 +14,9 @@ export default class Recipe {
             this.title = data.title;
             this.servings = data.servings;
             this.sourceUrl = data.sourceUrl;
+            this.uniformSourceUrl();
+            this.publisher = this.getSourceName();
+            
             this.parseIngredientes(ingredients);
           
         } 
@@ -34,5 +37,31 @@ export default class Recipe {
         });
         this.ingredients = newIngArr;
         // console.log(this.ingredients);
+    }
+
+    uniformSourceUrl(){
+        const newUrl = this.sourceUrl.includes('https') ? this.sourceUrl : this.sourceUrl.replace('http', 'https');
+        this.sourceUrl = newUrl;
+    }
+    //START HERE
+    getSourceName(){
+        let name;
+        if(this.sourceUrl.includes('.com')){
+           name = this.sourceUrl.replace('.com', '');
+           
+        }
+        else if(this.sourceUrl.includes('.net')){
+            name = this.sourceUrl.replace('.net', '');
+            
+        }
+        else if(this.sourceUrl.includes('.org')){
+            name = this.sourceUrl.replace('.org', '');
+            
+        }
+        name = name.includes('www') ? name.replace('https://www.', ''): name.replace('https://', '');
+        const index = name.indexOf('/');
+        name = name.substr(0, index);
+        return name;
+        
     }
 }

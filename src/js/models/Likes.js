@@ -28,7 +28,6 @@ export default class Likes {
     }
 
     isLiked(id){
-        console.log(` The index for ${id} is: ${this.likesArr.findIndex(el => el.id === id)}`);
         return this.likesArr.findIndex(el => el.id === id) !== -1;
     }
 
