@@ -12,6 +12,7 @@ export default class Recipe {
             this.cookingMinutes = data.cookingMinutes;
             this.title = data.title;
             this.servings = data.servings;
+            this.sourceUrl = data.sourceUrl;
             this.parseIngredientes(ingredients);
           
         } 
