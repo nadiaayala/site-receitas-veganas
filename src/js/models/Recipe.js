@@ -1,3 +1,4 @@
+
 export default class Recipe {
     constructor(id) {
         this.id = id;

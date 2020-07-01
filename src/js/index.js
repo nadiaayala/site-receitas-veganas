@@ -4,9 +4,11 @@ import { elements, renderLoader, clearLoader } from './views/base';
 import Search from './models/Search';
 import Recipe from './models/Recipe';
 import Likes from './models/Likes';
+import List from './models/List';
 import * as searchView from './views/searchView';
 import * as recipeView from './views/recipeView';
 import * as likesView from './views/likesView';
+import * as listView from './views/listView';
 
 
 let state = {}
@@ -31,6 +33,9 @@ elements.searchResPages.addEventListener('click', e => {
 elements.recipe.addEventListener('click', e => {
     if(e.target.matches('.recipe__love, .recipe__love *')) {
         controlLikes();
+    }
+    else if(e.target.matches('.recipe__btn, .recipe__btn *')){
+        controlList();
     }
 });
 
@@ -83,7 +88,15 @@ const controlLikes = () => {
         likesView.toggleLikedBtn(false);
     }
     likesView.toggleLikesBtn(state.likes.getNumLikes());
-    
+};
+
+const controlList = () => {
+    if (!state.list)  state.list = new List();
+    state.recipe.ingredients.forEach(el => {
+        const item = state.list.addItem(el.amount, el.unit, el.name);
+        listView.renderItem(item);
+    });
+    console.log(state.list);
 }
 
 window.addEventListener('hashchange', controlRecipe);
