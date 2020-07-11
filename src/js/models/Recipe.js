@@ -36,14 +36,29 @@ export default class Recipe {
             newIngArr.push(ingredient);
         });
         this.ingredients = newIngArr;
-        // console.log(this.ingredients);
     }
+    
+    
+    updateServings(operation){
+        //Calculating the quantity for each serving
+        this.ingredients.forEach(el => {
+            el.perServing = parseFloat((el.amount / this.servings).toFixed(2));
+        });
+        
+        this.servings = operation === 'inc' ? this.servings+=1 : this.servings-=1;
+        console.log(`The current amount of servings is: ${this.servings}`); 
+
+        //Calculating the quantity for thr desired amount of servings
+        this.ingredients.forEach(el => {
+            el.amount = el.perServing * this.servings;
+        });
+    };
 
     uniformSourceUrl(){
         const newUrl = this.sourceUrl.includes('https') ? this.sourceUrl : this.sourceUrl.replace('http', 'https');
         this.sourceUrl = newUrl;
-    }
-    //START HERE
+    };
+
     getSourceName(){
         let name;
         if(this.sourceUrl.includes('.com')){

@@ -39,6 +39,16 @@ elements.recipe.addEventListener('click', e => {
     else if(e.target.matches('.recipe__btn, .recipe__btn *')){
         controlList();
     }
+    else if(e.target.matches('.recipe__info-buttons, .recipe__info-buttons *')){
+        const id = window.location.hash.replace('#', '');
+        if(e.target.closest('.btn-tiny').classList.contains('increase')){
+            state.recipe.updateServings('inc');
+        }
+        else if (e.target.closest('.btn-tiny').classList.contains('decrease')){
+             state.recipe.updateServings('dec');
+        }
+        recipeView.renderRecipe(state.recipe, state.likes.isLiked(id));
+    }
 });
 
 elements.searchResList.addEventListener('click', e => {
@@ -106,7 +116,6 @@ const controlList = () => {
         const item = state.list.addItem(el.amount, el.unit, el.name);
         listView.renderItem(item);
     });
-    console.log(state.list);
 };
 
 elements.shopping.addEventListener('click', e => {

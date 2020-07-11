@@ -25,12 +25,12 @@ export const renderRecipe = (recipe, isLiked) => {
                         <span class="recipe__info-data recipe__info-data--people">${recipe.servings}</span>
                         <span class="recipe__info-text"> servings</span>
                         <div class="recipe__info-buttons">
-                            <button class="btn-tiny">
+                            <button class="btn-tiny decrease">
                                 <svg>
                                     <use href="img/icons.svg#icon-circle-with-minus"></use>
                                 </svg>
                             </button>
-                            <button class="btn-tiny">
+                            <button class="btn-tiny increase">
                                 <svg>
                                     <use href="img/icons.svg#icon-circle-with-plus"></use>
                                 </svg>
@@ -89,4 +89,4 @@ const createIngredientMarkup = (name, amount, unit) => {
 
 export const clearRecipe = () => {
     elements.recipe.innerHTML = '';
-}
+};
